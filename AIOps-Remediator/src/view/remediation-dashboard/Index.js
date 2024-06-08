@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [problemData, setProblemData] = useState([]);
   const [handleSelectData, setHandleSelectData] = useState();
   const { isLoading, error, data, getData } = useFetch_GET();
-
+  console.log(problemData, "LKLKLK");
   useEffect(() => {
     setProblemData(data);
   }, [data]);
@@ -24,14 +24,14 @@ const Dashboard = () => {
   return (
     <div>
       <div>
-        
         <button
           id="createRuleButton"
           className="createrulebutton"
           onClick={() => {
             navigate("/new-rule");
           }}
-        >Create New Rule
+        >
+          Create New Rule
         </button>
         <div className="container">
           <div className="left-panel">

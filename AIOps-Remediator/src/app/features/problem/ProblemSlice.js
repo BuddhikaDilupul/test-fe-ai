@@ -19,7 +19,7 @@ const ProblemSlice = createSlice({
     },
 
     clearProblem: (state) => {
-     state.problemTitle = null;
+      state.problemTitle = null;
       state.subProblemTitle = null;
       state.problemId = null;
       state.serviceName = null;

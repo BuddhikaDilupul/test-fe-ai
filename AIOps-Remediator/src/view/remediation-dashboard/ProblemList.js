@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setProblem } from "../../app/features/problem/ProblemSlice";
 
 const ProblemForm = ({ data, onSubmit }) => {
+  console.log(data, "ALL");
   const [selectedProblem, setSelectedProblem] = useState({
     main: "",
     sub: "",
@@ -88,7 +89,7 @@ const ProblemForm = ({ data, onSubmit }) => {
               key={index}
               value={JSON.stringify([subProblemName, id, ServiceName])}
             >
-              {subProblemName}
+              {subProblemName + " for " + ServiceName + " Service"}
             </option>
           ))}
         </select>

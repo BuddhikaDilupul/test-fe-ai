@@ -31,6 +31,9 @@ const ExecutionHistory = () => {
     );
   };
   const calculateDuration = (start, end) => {
+    if (start === null || end === null) {
+      return "N/A";
+    }
     const startDate = new Date(start);
     const endDate = new Date(end);
     const durationInMilliseconds = endDate - startDate;
@@ -65,6 +68,7 @@ const ExecutionHistory = () => {
         <table id="execution-table">
           <thead>
             <tr>
+              <th>ID</th>
               <th>DisplayID</th>
               <th>Problem Title</th>
               <th>Sub Problem Title</th>
@@ -89,6 +93,7 @@ const ExecutionHistory = () => {
                   navigate(`/${item.pid}/${item.executedProblemId}`)
                 }
               >
+                <td>{item.id}</td>
                 <td>{item.displayId}</td>
                 <td>{item.problemTitle}</td>
                 <td>{item.subProblemTitle || "N/A"}</td>
@@ -98,9 +103,12 @@ const ExecutionHistory = () => {
                 <td>{item.status}</td>
                 <td>{item.serviceName}</td>
                 <td>{item.problemDetectedAt}</td>
-                <td>{item.problemEndAt}</td>
+                <td>{item?.problemEndAt || "N/A"}</td>
                 <td>
-                  {calculateDuration(item.problemDetectedAt, item.problemEndAt)}{" "}
+                  {calculateDuration(
+                    item?.problemDetectedAt,
+                    item?.problemEndAt
+                  )}{" "}
                   min
                 </td>
                 <td>{item.actionType.toUpperCase()}</td>
