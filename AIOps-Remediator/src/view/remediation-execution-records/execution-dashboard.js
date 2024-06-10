@@ -31,14 +31,15 @@ const ExecutionHistory = () => {
     );
   };
   const calculateDuration = (start, end) => {
-    if (start === null || end === null) {
+    if (start == null || end == null) {
       return "N/A";
+    } else {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      const durationInMilliseconds = endDate - startDate;
+      const durationInMinutes = Math.floor(durationInMilliseconds / 60000);
+      return durationInMinutes;
     }
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    const durationInMilliseconds = endDate - startDate;
-    const durationInMinutes = Math.floor(durationInMilliseconds / 60000);
-    return durationInMinutes;
   };
   return (
     <div>
