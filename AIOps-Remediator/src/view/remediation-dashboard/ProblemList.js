@@ -83,13 +83,13 @@ const ProblemForm = ({ data, onSubmit }) => {
             subProblems.find((sub) => sub[0] === selectedProblem.sub)?.[1],
           ])}
         >
-          <option value="">Select Sub-Problem</option>
+          <option value="">Select Service</option>
           {subProblems.map(([subProblemName, id, ServiceName], index) => (
             <option
               key={index}
               value={JSON.stringify([subProblemName, id, ServiceName])}
             >
-              {subProblemName + " for " + ServiceName + " Service"}
+              {ServiceName + " Service"}
             </option>
           ))}
         </select>
