@@ -72,7 +72,7 @@ const ProblemForm = ({ data, onSubmit }) => {
       </div>
       <div className="form-group">
         <label htmlFor="sub-problem" className="label-class">
-          Sub-Problem:
+          Service:
         </label>
         <select
           id="sub-problem"
