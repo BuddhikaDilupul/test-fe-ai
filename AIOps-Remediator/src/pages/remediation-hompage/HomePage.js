@@ -108,7 +108,6 @@ const HomePage = () => {
               <p className="activity-title">
                 {data?.problemTitle} for {data?.serviceName}
               </p>
-              <br />
               <p className="activity-description">
                 Remidiator took <b>{data?.actionType.toLowerCase()}</b> action
                 and currunt status is {data?.status}{" "}
