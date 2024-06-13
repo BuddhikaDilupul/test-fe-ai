@@ -1,23 +1,27 @@
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import usePreviousRoute from "../../hooks/usePreviousRoute";
 import logo from "./../../assest/virtusa.png";
 import "./topbar.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
 const TopBar = () => {
   const navigate = useNavigate();
-  
+  const previousRoute = usePreviousRoute();
+  const location = useLocation();
+
+  const hiddenPaths = ["/remediation", "/audit","/new-rule","/recommendation","/new-problem","/"];
+  const shouldHideIcons = hiddenPaths.includes(location.pathname);
   return (
     <div className="top-bar">
       <div className="logo">
-        <img
-          src={logo}
-          alt="Company Logo"
-        />
+        <img src={logo} alt="Company Logo" />
       </div>
       <div className="icons-container">
-        <label className="backto-home" onClick={() => navigate(-1)}>
-          <i className="fas fa-arrow-left"></i>
-        </label>
+        {!shouldHideIcons && (
+          <label className="backto-home" onClick={() => navigate(-1)}>
+            <i className="fas fa-arrow-left"></i>
+          </label>
+        )}
         <label className="backto-home" onClick={() => navigate("/")}>
           <i className="fas fa-home"></i>
         </label>
