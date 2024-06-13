@@ -1,12 +1,10 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import usePreviousRoute from "../../hooks/usePreviousRoute";
 import logo from "./../../assest/virtusa.png";
 import "./topbar.css";
 const TopBar = () => {
   const navigate = useNavigate();
-  const previousRoute = usePreviousRoute();
   const location = useLocation();
 
   const hiddenPaths = ["/remediation", "/audit","/new-rule","/recommendation","/new-problem","/"];
